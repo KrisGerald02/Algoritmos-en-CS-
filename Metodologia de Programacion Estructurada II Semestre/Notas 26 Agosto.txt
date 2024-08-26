@@ -1,0 +1,16 @@
+tipo de datos en c#
+tamaño en bytes
+bool 1 true / false
+char 2 Tabla Unicode
+byte 1
+sbyte 1 signed= consigno  se puede usar numeros popsitivos y negativos
+string = cadena
+short 2
+ushort 2
+int 4 = 2 ala 32 tiene 4 billones es signado de - 2 millones hasta 2 millones se puede usar el int 4 billones 4/2= -2 hacia el infinito, +2
+uint 4 unsigned= sin signo solo numeros positivos se pueden usar
+long 8= 2 ala 64
+ulong 8
+float 4
+double 8
+decimal 16= 2 ala 128
