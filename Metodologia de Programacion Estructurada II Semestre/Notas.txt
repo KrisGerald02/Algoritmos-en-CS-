@@ -41,3 +41,18 @@ DateTime.now.year //Ahora()
 
 //Convertir int float a string para que lo lea
 int numPag = int.Parse(Console.ReadLine());
+
+//Limpar Pantalla (Usar en bucles o despues de pedir datos)
+Console.Clear();
+
+//Poner Colores y borrarlos despues
+Console.BackgroundColor = ConsoleColor.White;
+Console.WriteLine("El anio esta Disponible");
+Console.ResetColor();
+
+//Parar todo
+Console.ReadKey();
+
+
+CTRL O eJEMPLOS Y DOCUMENTACION SOBRE LA VARIALBE
+
