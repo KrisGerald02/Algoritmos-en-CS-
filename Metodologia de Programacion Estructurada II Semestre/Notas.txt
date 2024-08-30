@@ -24,3 +24,9 @@ todos condicionales son =
 for while do while for each
 
 8*4 32
+
+
+//30 de agosto
+if(string.IsNullorEmpty) //Sirve para validar si el usuario no ingresa nada
+
+if(!int.TryParse(Console.ReadLine(),out numPag ║ numPag <=0)
