@@ -1,5 +1,4 @@
 using System;
-using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
@@ -9,7 +8,7 @@ class Program
       string autor;
       int numPag;
       float precio;
-      bool disponibilidad;
+      string disponibilidad;
       int anioPub;
       //Declaracion y Captura de Variables
       Console.WriteLine("Bienvenido a la Biblioteca");
@@ -31,7 +30,6 @@ class Program
          Console.BackgroundColor = ConsoleColor.Green;
          Console.WriteLine("Titulo Aprobado");
          Console.ResetColor();
-         return;
       };
       Console.WriteLine("Ingrese el autor: ");
       autor= Console.ReadLine();
@@ -49,14 +47,63 @@ class Program
          Console.BackgroundColor = ConsoleColor.Green;
          Console.WriteLine("Autor Aprobado");
          Console.ResetColor();
-         return;
       };
       Console.WriteLine("Ingrese el numero de paginas: ");
       numPag = int.Parse (Console.ReadLine());//convierte num a string
+      // Validacion numPag si es neg bai si es + oli
+      //if (!string.IsNullOrEmpty(numPag)) negativo
+      if (numPag >= 0)
+      {
+         //Aprobamos el numPag
+         Console.BackgroundColor = ConsoleColor.Green;
+         Console.WriteLine("Numero de Paginas Aprobado");
+         Console.ResetColor();
+      }
+      else
+      {
+         //Aprobamos el Autor
+         Console.BackgroundColor = ConsoleColor.Red;
+         Console.WriteLine("Ingrese un numero positivo");
+         Console.ReadKey();
+         return;
+      };
       Console.WriteLine("Ingrese el precio del libro: ");
       precio= float.Parse (Console.ReadLine());
+      //Validacion Precio
+      if (precio >= 0)
+      {
+         //Aprobamos el Precio
+         Console.BackgroundColor = ConsoleColor.Green;
+         Console.WriteLine("Precio Aprobado");
+         Console.ResetColor();
+      }
+      else
+      {
+         //Aprobamos el Autor
+         Console.BackgroundColor = ConsoleColor.Red;
+         Console.WriteLine("Ingrese un numero positivo");
+         Console.ReadKey();
+         return;
+      };
       Console.WriteLine("¿Esta Disponible?");
-      disponibilidad = false;
+      Console.WriteLine("Para verificar su Disponibilidad ingrese S/N o s/n");
+      disponibilidad = Console.ReadLine();
+      if (disponibilidad.ToUpper() == "S")
+      {
+         //Aprobamos el Libro
+         Console.BackgroundColor = ConsoleColor.Green;
+         Console.WriteLine("Libro Disponible");
+         Console.ResetColor();
+      }
+      else if(disponibilidad.ToUpper() == "N")
+      {
+         //Aprobamos el Libro
+         Console.BackgroundColor = ConsoleColor.Red;
+         Console.WriteLine("El libro no esta Disponible");
+         Console.ReadKey();
+         return;
+      };
+
       Console.WriteLine("Ingrese el anio de publicacion: ");
       anioPub= int.Parse (Console.ReadLine());
       //Validacion anioPub
@@ -66,7 +113,6 @@ class Program
          Console.BackgroundColor= ConsoleColor.Green;
          Console.WriteLine("El anio esta Disponible");
          Console.ResetColor();
-         return;
       }
         else
       {
@@ -74,8 +120,17 @@ class Program
          Console.BackgroundColor = ConsoleColor.Red;
          Console.WriteLine("El anio no esta Disponible");
          Console.ReadKey();
-         return;
       };
-
+      
+      //Salida Final
+      Console.Clear();
+      Console.WriteLine("El libro se llama: {0}", titulo);
+      Console.WriteLine("El autor es: {0}", autor);
+      Console.WriteLine("Tiene: {0}", numPag, "paginas");
+      Console.WriteLine("Tiene un precio de $: {0}", precio);
+      Console.WriteLine("Se publico en : {0}", anioPub);
+      Console.WriteLine("Disponibilidad: {0}", disponibilidad);
+      Console.ReadKey();
+      return;
    }
 }
