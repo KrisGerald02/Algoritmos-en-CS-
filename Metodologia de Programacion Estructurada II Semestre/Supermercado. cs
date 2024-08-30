@@ -1,0 +1,47 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Entrada de datos
+        Console.Write("Ingrese el nombre del producto: ");
+        string nombreProducto = Console.ReadLine();
+        
+        Console.Write("Ingrese el código del producto (entero): ");
+        int codigoProducto = int.Parse(Console.ReadLine());
+        
+        Console.Write("Ingrese el precio del producto (decimal): ");
+        float precioProducto = float.Parse(Console.ReadLine());
+        
+        Console.Write("¿El producto está disponible? (true/false): ");
+        bool disponibilidadProducto = bool.Parse(Console.ReadLine());
+        
+        Console.Write("Ingrese la categoría del producto (A, B, C): ");
+        char categoriaProducto = char.Parse(Console.ReadLine().ToUpper());
+        
+        Console.Write("Ingrese el descuento aplicable (en porcentaje): ");
+        double descuento = double.Parse(Console.ReadLine());
+
+        // Aplicación de las condiciones de descuento
+        if (categoriaProducto == 'A' && precioProducto > 100.0)
+        {
+            descuento += 10.0; // 10% adicional
+        }
+        else if (categoriaProducto == 'B' && precioProducto <= 50.0)
+        {
+            descuento += 5.0; // 5% adicional
+        }
+
+        // Cálculo del precio final con el descuento
+        double precioFinal = precioProducto - (precioProducto * (descuento / 100.0));
+
+        // Salida de datos
+        Console.WriteLine("\nInformación del Producto:");
+        Console.WriteLine($"Nombre: {nombreProducto}");
+        Console.WriteLine($"Código: {codigoProducto}");
+        Console.WriteLine($"Precio Final: {precioFinal:F2}");
+        Console.WriteLine($"Categoría: {categoriaProducto}");
+        Console.WriteLine($"Disponibilidad: {(disponibilidadProducto ? "Disponible" : "No Disponible")}");
+    }
+}
