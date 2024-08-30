@@ -29,4 +29,12 @@ for while do while for each
 //30 de agosto
 if(string.IsNullorEmpty) //Sirve para validar si el usuario no ingresa nada
 
+
 if(!int.TryParse(Console.ReadLine(),out numPag ║ numPag <=0)
+
+//otra manera de if, else, else
+if((disp? "Si":"No"))
+If(disp==True)
+
+//Anio Actual
+DateTime.now.year //Ahora()
