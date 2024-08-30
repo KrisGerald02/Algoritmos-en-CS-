@@ -38,3 +38,6 @@ If(disp==True)
 
 //Anio Actual
 DateTime.now.year //Ahora()
+
+//Convertir int float a string para que lo lea
+int numPag = int.Parse(Console.ReadLine());
