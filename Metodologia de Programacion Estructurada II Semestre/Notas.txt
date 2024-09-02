@@ -50,6 +50,22 @@ Console.BackgroundColor = ConsoleColor.White;
 Console.WriteLine("El anio esta Disponible");
 Console.ResetColor();
 
+
+
+//2 SEPT
+Control de flujo
+&& || Not
+
+bifurcaciones
+if/else
+swicht
+for
+whie
+do while
+foreach
+*contadores y acumuladores
+
+Console.Write sirve para solo imrimir en pantalla sin salto de linea
 //Parar todo
 Console.ReadKey();
 
