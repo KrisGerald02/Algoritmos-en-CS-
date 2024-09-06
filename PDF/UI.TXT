@@ -81,3 +81,11 @@ cont --
 
 suma+= cont;
 suma= suma + cont:
+
+
+
+//Condiciones
+se conoce el no. iteraciones for
+se desconoce while
+entrada de datos o menu do while
+gestion de elementos de una coleccion foreahc
