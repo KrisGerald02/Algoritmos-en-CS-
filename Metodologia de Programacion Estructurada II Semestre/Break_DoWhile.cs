@@ -5,22 +5,22 @@ using System;
       public static void Main(string[] args)
       {
       int n;
-      char resp; 
+      char resp = ' '; 
       Console.WriteLine("Uso de Entrada con Iteraciones (Si/No)");
 
       do
       {
-         Console.WriteLine("Desea ingresar otro numero (S= Si || N= No): ");
-         resp = char.Parse(Console.ReadLine());
-
-         //Para no
-         if (resp == 'N' || resp == 'n')
-          break;
-
          Console.WriteLine("Ingrese el numero: ");
          n = int.Parse(Console.ReadLine());
 
-      } while (resp == 'S' || resp == 's');
+         Console.WriteLine("Desea ingresar otro numero (S= Si || N= No): ");
+         resp = char.Parse(Console.ReadLine());
+         if (resp == 'n' || resp == 'N')
+          break;
+
+       
+
+      } while (resp == 's' || resp == 'S');
 
       //Centinela
       Console.WriteLine("Uso de Centinela");
