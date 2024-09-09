@@ -7,7 +7,7 @@ public class Program
       int i;
       int nElementos;
       Console.WriteLine("Lista de Elementos de Arreglo");
-      Console.WriteLine("Ingrese la cantidad de elementos del arreglo: ");
+      Console.Write("Ingrese la cantidad de elementos del arreglo: ");
       nElementos= int.Parse(Console.ReadLine());
       //Arreglo
       //Primer int para indicar creacion de arreglo
