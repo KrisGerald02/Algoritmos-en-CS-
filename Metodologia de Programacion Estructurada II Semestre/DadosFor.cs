@@ -15,7 +15,7 @@ sexta parte de todas las tiradas deberán ser 7.
 using System;
 public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         Random rand = new Random();
         int[] sumFrequencies = new int[13];
