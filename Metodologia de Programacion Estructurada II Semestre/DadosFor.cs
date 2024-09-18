@@ -13,7 +13,7 @@ sexta parte de todas las tiradas deberán ser 7.
 */
 
 using System;
-class Program
+public class Program
 {
     static void Main(string[] args)
     {
