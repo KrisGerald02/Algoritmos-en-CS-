@@ -12,14 +12,15 @@ se imprimirán en formato tabular.
 
 using System;
 
-class Program
+public class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
         decimal[,] ventas = new decimal[5, 6];
 
         Console.WriteLine("Ingrese la información de ventas: ");
-        for (int i = 0; i < 5; i++){ // aqui asigno que max sean 5 productos
+        for (int i = 0; i < 5; i++)
+        { // aqui asigno que max sean 5 productos
             for (int j = 0; j < 4; j++) // aqui asigno que max son 4 vendedores
             {
                 Console.Write($"Ventas del producto {i + 1} por el vendedor {j + 1}: ");
