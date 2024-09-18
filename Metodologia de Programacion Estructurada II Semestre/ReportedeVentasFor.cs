@@ -14,14 +14,13 @@ using System;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         decimal[,] ventas = new decimal[5, 6];
 
         Console.WriteLine("Ingrese la información de ventas: ");
-        for (int i = 0; i < 5; i++) // 5 productos
-        {
-            for (int j = 0; j < 4; j++) // 4 vendedores
+        for (int i = 0; i < 5; i++){ // aqui asigno que max sean 5 productos
+            for (int j = 0; j < 4; j++) // aqui asigno que max son 4 vendedores
             {
                 Console.Write($"Ventas del producto {i + 1} por el vendedor {j + 1}: ");
                 ventas[i, j] = decimal.Parse(Console.ReadLine());
@@ -29,10 +28,8 @@ class Program
                 ventas[4, j] += ventas[i, j]; // Sumar ventas por vendedor
             }
         }
-
-        Console.WriteLine("\nResumen de ventas (en dólares):");
+        Console.WriteLine("\nResumen de ventas :");
         Console.WriteLine("Producto\tVendedor 1\tVendedor 2\tVendedor 3\tVendedor 4\tTotal Producto");
-
         for (int i = 0; i < 5; i++)
         {
             Console.Write($"Producto {i + 1}\t");
@@ -42,7 +39,6 @@ class Program
             }
             Console.WriteLine();
         }
-
         Console.WriteLine("Total Vendedor\t");
         for (int j = 0; j < 4; j++)
         {
