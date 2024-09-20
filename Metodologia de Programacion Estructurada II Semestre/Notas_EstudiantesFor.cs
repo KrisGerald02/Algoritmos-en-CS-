@@ -17,18 +17,14 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        int n; // Variable para la cantidad de estudiantes
-        do
+        int n;
+        for (n = 1; n <= 2; n++)
         {
             Console.Write("Ingrese la cantidad de estudiantes (mínimo 3): ");
             n = int.Parse(Console.ReadLine());
-        } while (n < 3);
-
-        // Crear arreglos para los nombres y las notas
+        }
         string[] nombres = new string[n]; // Arreglo para nombres
         float[,] notas = new float[n, 3]; // Matriz para notas
-
-        // Solicitar los nombres y las notas
         for (int i = 0; i < n; i++)
         {
             Console.Write($"Ingrese el nombre del estudiante {i + 1}: ");
@@ -40,11 +36,8 @@ public class Program
                 notas[i, j] = float.Parse(Console.ReadLine());
             }
         }
-
-        // Calcular promedios y determinar el mejor promedio
         float[] promedios = new float[n];
         int estudianteMejorPromedio = 0;
-
         for (int i = 0; i < n; i++)
         {
             float sumaNotas = 0;
@@ -53,14 +46,11 @@ public class Program
             {
                 sumaNotas += notas[i, j];
             }
-
             promedios[i] = sumaNotas / 3;
             string estado = promedios[i] >= 70 ? "Aprobado" : "Reprobado";
-
             Console.WriteLine($"\nEstudiante: {nombres[i]}");
             Console.WriteLine($"Notas: {notas[i, 0]}, {notas[i, 1]}, {notas[i, 2]}");
             Console.WriteLine($"Promedio: {promedios[i]:0.00} - {estado}");
-
             if (promedios[i] > promedios[estudianteMejorPromedio])
             {
                 estudianteMejorPromedio = i;
