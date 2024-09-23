@@ -12,7 +12,7 @@ class ArchivoTexto
 
         FileStream fs = new FileStream(rutaArchivo, FileMode.Create);
         StreamWriter writer = new StreamWriter(fs);
-        writer.WriteLine(texto);
+        writer.WriteLine(texto);//se instancia el objeto writer para escribir
 
         writer.Close();
         fs.Close();
@@ -23,7 +23,7 @@ class ArchivoTexto
         {
             FileStream fsLectura = new FileStream(rutaArchivo, FileMode.Open);
             StreamReader reader = new StreamReader(fsLectura);
-            string contenido = reader.ReadToEnd();
+            string contenido = reader.ReadToEnd(); // se instancia el objeto contenido para leer
             reader.Close();
             fsLectura.Close();
             Console.WriteLine("Contenido del archivo:");
