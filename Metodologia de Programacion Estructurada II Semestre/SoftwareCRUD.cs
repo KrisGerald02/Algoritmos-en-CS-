@@ -7,9 +7,9 @@ almacenar en disco y recuperar del disco, así como las
 operaciones de actualización y eliminación de registros en 
 memoria y disco.  */
 
+
 using System;
 using System.IO;
-using System.Collections.Generic;
 
 namespace CrudSoftware
 {
@@ -36,6 +36,7 @@ namespace CrudSoftware
     public class Crud
     {
         private const string archivo = "software.dat";
+        private const int MaxSoftware = 100; // Capacidad máxima del arreglo
 
         public static void Main()
         {
@@ -58,7 +59,7 @@ namespace CrudSoftware
                     case 3: ActualizarSoftware(); break;
                     case 4: EliminarSoftware(); break;
                     case 5: break;
-                    default: break;
+                    default: Console.WriteLine("Opción no válida."); break;
                 }
             } while (opcion != 5);
         }
@@ -139,8 +140,9 @@ namespace CrudSoftware
 
             Console.Write("Ingrese el nombre del software a actualizar: ");
             string nombreBuscar = Console.ReadLine();
+            Software[] softwareList = new Software[MaxSoftware];
+            int contador = 0;
             bool encontrado = false;
-            List<Software> softwareList = new List<Software>();
 
             using (BinaryReader reader = new BinaryReader(File.Open(archivo, FileMode.Open)))
             {
@@ -175,7 +177,7 @@ namespace CrudSoftware
                             encontrado = true;
                         }
 
-                        softwareList.Add(software);
+                        softwareList[contador++] = software; // Guardar el software en el arreglo
                     }
                 }
                 catch (EndOfStreamException) { }
@@ -185,14 +187,14 @@ namespace CrudSoftware
             {
                 using (BinaryWriter writer = new BinaryWriter(File.Open(archivo, FileMode.Create)))
                 {
-                    foreach (var soft in softwareList)
+                    for (int i = 0; i < contador; i++)
                     {
-                        writer.Write(soft.Fabricante);
-                        writer.Write(soft.Nombre);
-                        writer.Write(soft.Edicion);
-                        writer.Write(soft.Version);
-                        writer.Write(soft.Licenciamiento);
-                        writer.Write(soft.Descripcion);
+                        writer.Write(softwareList[i].Fabricante);
+                        writer.Write(softwareList[i].Nombre);
+                        writer.Write(softwareList[i].Edicion);
+                        writer.Write(softwareList[i].Version);
+                        writer.Write(softwareList[i].Licenciamiento);
+                        writer.Write(softwareList[i].Descripcion);
                     }
                 }
                 Console.WriteLine("Software actualizado con éxito.");
@@ -213,8 +215,9 @@ namespace CrudSoftware
 
             Console.Write("Ingrese el nombre del software a eliminar: ");
             string nombreEliminar = Console.ReadLine();
+            Software[] softwareList = new Software[MaxSoftware];
+            int contador = 0;
             bool encontrado = false;
-            List<Software> softwareList = new List<Software>();
 
             using (BinaryReader reader = new BinaryReader(File.Open(archivo, FileMode.Open)))
             {
@@ -234,11 +237,11 @@ namespace CrudSoftware
 
                         if (software.Nombre != nombreEliminar)
                         {
-                            softwareList.Add(software);
+                            softwareList[contador++] = software; // Solo guardamos los que no se eliminan
                         }
                         else
                         {
-                            encontrado = true;
+                            encontrado = true; // Software encontrado para eliminar
                         }
                     }
                 }
@@ -249,14 +252,14 @@ namespace CrudSoftware
             {
                 using (BinaryWriter writer = new BinaryWriter(File.Open(archivo, FileMode.Create)))
                 {
-                    foreach (var soft in softwareList)
+                    for (int i = 0; i < contador; i++)
                     {
-                        writer.Write(soft.Fabricante);
-                        writer.Write(soft.Nombre);
-                        writer.Write(soft.Edicion);
-                        writer.Write(soft.Version);
-                        writer.Write(soft.Licenciamiento);
-                        writer.Write(soft.Descripcion);
+                        writer.Write(softwareList[i].Fabricante);
+                        writer.Write(softwareList[i].Nombre);
+                        writer.Write(softwareList[i].Edicion);
+                        writer.Write(softwareList[i].Version);
+                        writer.Write(softwareList[i].Licenciamiento);
+                        writer.Write(softwareList[i].Descripcion);
                     }
                 }
                 Console.WriteLine("Software eliminado con éxito.");
